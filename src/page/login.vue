@@ -22,6 +22,7 @@
 <script>
 import { indexStore } from '@/stores/index'
 import LayoutLogin from '../layout/login.vue'
+import { sendPost } from '../plugins/axios.ts'
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 export default {
@@ -34,8 +35,10 @@ export default {
     const store = indexStore()
     let username = ref('')
     let password = ref('')
-    const onSubmitLogin = () => {
+    const onSubmitLogin = async () => {
       if (!username.value || !password.value) return
+      // CALL API LOGIN Ở ĐÂY
+      // await sendPost('url',params);
       store.setLogin(true)
       router.push('/')
     }
